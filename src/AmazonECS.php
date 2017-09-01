@@ -59,7 +59,7 @@ class AmazonECS
 		$url 		= $this->url($params, $signature);
 
 		try {
-			$this->response = $this->client->get($url)->getBody();
+			$this->response = $this->client->get($url)->getBody()->getContents();
 			return $this;
 		} catch(ClientException $e) {
 			return $e->getResponse();
